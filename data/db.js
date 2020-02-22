@@ -11,7 +11,7 @@ module.exports = function(){
   mongoose.set('useFindAndModify', false);
 
   // Start connecting, faculty is the database name
-  mongoose.connect('mongodb://localhost/faculty');
+  mongoose.connect('mongodb://localhost/data');
 
   // Make sure we see any errors
   mongoose.connection.on('error', function(error) {
