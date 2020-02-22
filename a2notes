@@ -1,0 +1,21 @@
+<!--
+
+What is a query??
+
+- A query is a request for data or information from a database table or combination of tables.
+
+What data are we requesting?
+
+- We are requesting data from a mongo data base
+- MongoDB is an open-source document-based database
+  management tool that stores data in JSON-like formats.
+  It is a highly scalable, flexible, and distributed NoSQL database.
+
+
+
+
+
+
+
+
+-->
