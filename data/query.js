@@ -20,10 +20,10 @@ const queries = [
   Voter.find().sort('firstName'),
 
   // Who started most recently?
-  Voter.find().sort('-zip').limit(1),
+  //Voter.find().sort('-zip').limit(1),
 
   // Who started in 2003?
-  Voter.find().where('zip').equals(13617),
+  //Voter.find().where('zip').equals(13617),
 
   // Who teaches 362?
   //Voter.find().where('courses').in(362),
@@ -36,8 +36,8 @@ const queries = [
 Promise.all(queries)
   .then(function(results) {
     console.log('Names in order: ', results[0].map(p => p.firstName));
-    console.log('Started most recently: ', results[1].map(p => p.firstName));
-    console.log('Started in 2003: ', results[2].map(p => p.firstName));
+    //console.log('Started most recently: ', results[1].map(p => p.firstName));
+    //console.log('Started in 2003: ', results[2].map(p => p.firstName));
     //console.log('Teaches 362: ', results[3].map(p => p.name));
     //console.log('Distinct ranks: ', results[4]);
     mongoose.connection.close();
