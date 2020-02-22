@@ -20,10 +20,10 @@ const queries = [
   Voter.find().sort('firstName'),
 
   // Who started most recently?
-  //Voter.find().sort('-zip').limit(1),
+  Voter.find().sort('-zip').limit(1),
 
   // Who started in 2003?
-  //Voter.find().where('zip').equals(13617),
+  Voter.find().where('zip').equals(13617),
 
   // Who teaches 362?
   //Voter.find().where('courses').in(362),
