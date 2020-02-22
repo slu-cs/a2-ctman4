@@ -17,29 +17,29 @@ query.exec(function(error, professors) {
 const queries = [
 
   // What are names in alphabetical order?
-  Professor.find().sort('name'),
+  Voter.find().sort('firstName'),
 
   // Who started most recently?
-  Professor.find().sort('-started').limit(1),
+  Voter.find().sort('-zip').limit(1),
 
   // Who started in 2003?
-  Professor.find().where('started').equals(2003),
+  Voter.find().where('zip').equals(13617),
 
   // Who teaches 362?
-  Professor.find().where('courses').in(362),
+  //Voter.find().where('courses').in(362),
 
   // What are all the ranks?
-  Professor.distinct('rank')
+  //Voter.distinct('rank')
 ];
 
 // Run the queries in parallel
 Promise.all(queries)
   .then(function(results) {
-    console.log('Names in order: ', results[0].map(p => p.name));
-    console.log('Started most recently: ', results[1].map(p => p.name));
-    console.log('Started in 2003: ', results[2].map(p => p.name));
-    console.log('Teaches 362: ', results[3].map(p => p.name));
-    console.log('Distinct ranks: ', results[4]);
+    console.log('Names in order: ', results[0].map(p => p.firstName));
+    console.log('Started most recently: ', results[1].map(p => p.firstName));
+    console.log('Started in 2003: ', results[2].map(p => p.firstName));
+    //console.log('Teaches 362: ', results[3].map(p => p.name));
+    //console.log('Distinct ranks: ', results[4]);
     mongoose.connection.close();
   }).catch(error => console.error(error.stack));
 
@@ -76,4 +76,3 @@ Promise.all(queries)
   //to avoid nesting, use a chain of .then()s for the callbacks. This is just a long chain of method calls
   //then use a catch at the end of the code which will catch any errors that occur
   //then we replace the 'function' calls with mapping: .then(() => harcourt.save())
-]
