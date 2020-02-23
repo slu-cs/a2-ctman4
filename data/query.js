@@ -17,26 +17,33 @@ query.exec(function(error, voters) {
 const queries = [
 
   // What are names in alphabetical order?
-  Voter.find().sort('firstName'),
+  Voter.find().where('firstName').equals(STARR),
 
   // Who started most recently?
-  Voter.find().sort('-zip').limit(1),
+  Voter.find().sort('history').substr(0, 2).equals('GE16'),
 
   // Who started in 2003?
-  Voter.find().where('zip').equals(13617),
+  Voter.find().sort('firstName'),
 
   // Who teaches 362?
   //Voter.find().where('courses').in(362),
 
   // What are all the ranks?
   //Voter.distinct('rank')
+
+  //How many registered voters live in the Canton zip code (13617)?
+
+  //What are the full names of all the registered voters whose first-name is STARR?
+  //How many people voted in the 2016 general election (GE16)?
+  //What is the last-name that comes last in the county in alphabetical order?
+  //How many zip codes does the county contain?
 ];
 
 // Run the queries in parallel
 Promise.all(queries)
   .then(function(results) {
-    console.log('Names in order: ', results[0].map(p => p.firstName));
-    console.log('Started most recently: ', results[1].map(p => p.firstName));
+    console.log('Registered voters with first name STARR: ', results[0].map(p => p.firstName));
+    console.log('Voted in the 2016 general election: ', results[1].map(p => p.history));
     console.log('Started in 2003: ', results[2].map(p => p.firstName));
     //console.log('Teaches 362: ', results[3].map(p => p.name));
     //console.log('Distinct ranks: ', results[4]);
