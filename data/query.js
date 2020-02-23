@@ -17,11 +17,7 @@ query.exec(function(error, voters) {
 const queries = [
 
   // What are names in alphabetical order?
-<<<<<<< HEAD
-  Voter.find().where('firstName').equals('STARR'),
-=======
-  Voter.find().where('firstName').equals(STARR),
->>>>>>> 01d4f33a2a3ec2084691fdffd8067db9b64659a0
+  Voter.filter(('firstName').equals('STARR')),
 
   // Who started most recently?
   Voter.find().sort('history').substr(0, 2).equals('GE16'),
