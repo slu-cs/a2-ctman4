@@ -21,7 +21,7 @@ file.on('line', function(line) {
     zip: columns[2],
     history: columns[3]
 
-  });
+  }));
 
 });
 
