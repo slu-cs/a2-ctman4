@@ -17,11 +17,11 @@ file.on('line', function(line) {
     firstName: columns[0],
     lastName: columns[1],
     zip: Number(columns[2]),
-    history: Number(columns[2]),
+    history: (columns[3])
 
   });
 });
-connect(); // To the database
+connect(); // To the databases
 
 // Create some faculty
 
