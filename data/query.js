@@ -24,10 +24,10 @@ const queries = [
 
   // Who started in 2003?
   //Voter.find().sort('firstName')
-  Professor.find().sort('firstName'),
+  Voter.find().sort('firstName'),
 
   // Who started most recently?
-  Professor.find().sort('-lastName').limit(1),
+  Voter.find().sort('-lastName').limit(1),
 
   // Who started in 2003?
 
@@ -35,7 +35,7 @@ const queries = [
   // Who teaches 362?
 
   // What are all the ranks?
-  Professor.distinct('lastName')
+  Voter.distinct('lastName')
 
   // Who teaches 362?
   //Voter.find().where('courses').in(362),
