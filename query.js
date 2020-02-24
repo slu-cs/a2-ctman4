@@ -9,12 +9,6 @@ connect(); // To the database
 
 // What documents are in the collection?
 
-const query = Voter.find();
-query.exec(function(error, voters) {
-  if (error) console.error(error.stack);
-  console.log(voters);
-});
-
 const queries = [
 
   // What are names in alphabetical order?
@@ -59,7 +53,7 @@ Promise.all(queries)
     //console.log('Started in 2003: ', results[0]);
     //console.log('Teaches 362: ', results[3].map(p => p.name));
     //console.log('Distinct ranks: ', results[2]);
-    console.log(results.length());
+    console.log(results[0].length);
     mongoose.connection.close();
   }).catch(error => console.error(error.stack));
 
