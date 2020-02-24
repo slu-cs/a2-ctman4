@@ -9,6 +9,18 @@ const readline = require('readline');
 const file = readline.createInterface({
   input: fs.createReadStream('voters.csv')
 });
+
+const rows = [];
+file.on('line', function(line) {
+  const columns = line.split(',');
+  rows.push({
+    firstName: columns[0],
+    lastName: columns[1],
+    zip: Number(columns[2]),
+    history: Number(columns[2]),
+
+  });
+});
 connect(); // To the database
 
 // Create some faculty
