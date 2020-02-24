@@ -8,13 +8,13 @@ const Voter = require('./schema');
 connect(); // To the database
 
 // What documents are in the collection?
-/*
+
 const query = Voter.find();
 query.exec(function(error, voters) {
   if (error) console.error(error.stack);
   console.log(voters);
 });
-*/
+
 const queries = [
 
   // What are names in alphabetical order?
@@ -23,7 +23,19 @@ const queries = [
   //Voter.find().sort('history').substr(0, 2).equals('GE16'),
 
   // Who started in 2003?
-  Voter.find().sort('firstName')
+  //Voter.find().sort('firstName')
+  Professor.find().sort('firstName'),
+
+  // Who started most recently?
+  Professor.find().sort('-lastName').limit(1),
+
+  // Who started in 2003?
+
+
+  // Who teaches 362?
+
+  // What are all the ranks?
+  Professor.distinct('lastName')
 
   // Who teaches 362?
   //Voter.find().where('courses').in(362),
@@ -42,11 +54,11 @@ const queries = [
 // Run the queries in parallel
 Promise.all(queries)
   .then(function(results) {
-    console.log('Registered voters with first name STARR: ', results);
+    console.log('Registered voters with first name STARR: ', results[1].map(p => p.firstName));
     //console.log('Voted in the 2016 general election: ', results[1].map(p => p.history));
     //console.log('Started in 2003: ', results[0]);
     //console.log('Teaches 362: ', results[3].map(p => p.name));
-    //console.log('Distinct ranks: ', results[4]);
+    console.log('Distinct ranks: ', results[2]);
     mongoose.connection.close();
   }).catch(error => console.error(error.stack));
 
