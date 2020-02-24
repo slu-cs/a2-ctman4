@@ -7,7 +7,7 @@ const Voter = new mongoose.Schema({
   firstName: String,
   lastName: String,
   zip: Number,
-  history: String//an array
+  history: String
 });
 
 //Speed up queries on all fields //allows to search in each column
