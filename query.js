@@ -35,7 +35,9 @@ const queries = [
   //Voter.find().where('courses').in(362),
   Voter.where('firstName').equals('STARR'),
 
-  Voter.where('history').in('GE16')
+  Voter.where('history').in('GE16'),
+
+  Voter.find().sort('-lastName').limit(1)
 
 
 
