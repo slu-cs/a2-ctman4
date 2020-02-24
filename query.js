@@ -35,7 +35,7 @@ const queries = [
   //Voter.find().where('courses').in(362),
   Voter.where('firstName').equals('STARR'),
 
-  Voter.where('history').in('GE16'),
+  Voter.where('history').search('GE16'),
 
   Voter.find().sort('-lastName').limit(1),
 
@@ -60,7 +60,7 @@ Promise.all(queries)
     console.log('Number of people who voted in the 2016 general election: ', results[2].length);
     console.log('The last-name that comes last in the county in alphabetical order: ', results[3].map(v => v.lastName));
     console.log('The number of zip codes in the county: ', results[4].length);
-    console.log('registered voters live in the Canton zip code (13617)', results[5].length);
+    console.log('registered voters live in the Canton zip code (13617): ', results[5].length);
     //console.log('Voted in the 2016 general election: ', results[1].map(p => p.history));
     //console.log('Started in 2003: ', results[0]);
     //console.log('Teaches 362: ', results[3].map(p => p.name));
