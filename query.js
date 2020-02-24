@@ -33,7 +33,7 @@ const queries = [
   Voter.find()
   // Who teaches 362?
   //Voter.find().where('courses').in(362),
-  Voter.find().where('firstName').equals('STARR')
+  Voter.where('firstName').equals('STARR')
 
   // What are all the ranks?
   //Voter.distinct('rank')
@@ -49,7 +49,7 @@ const queries = [
 // Run the queries in parallel
 Promise.all(queries)
   .then(function(results) {
-    console.log('Registered voters with first name STARR: ', results[1].map(p => p.firstName));
+    console.log('Registered voters with first name STARR: ', results[1].map(v => v.firstName));
     //console.log('Voted in the 2016 general election: ', results[1].map(p => p.history));
     //console.log('Started in 2003: ', results[0]);
     //console.log('Teaches 362: ', results[3].map(p => p.name));
