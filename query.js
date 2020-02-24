@@ -33,7 +33,7 @@ const queries = [
   Voter.find()
   // Who teaches 362?
   //Voter.find().where('courses').in(362),
-  Professor.find().where('firstName').equals('STARR')
+  Voter.find().where('firstName').equals('STARR')
 
   // What are all the ranks?
   //Voter.distinct('rank')
