@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 //Schema for a collection of professors
 const Voter = new mongoose.Schema({
   //four columns
+
   firstName: String,
   lastName: String,
   zip: Number,
