@@ -12,7 +12,7 @@ const file = readline.createInterface({
   input: fs.createReadStream('voters.csv')
 });
 
-/*
+
 const rows = [];
 file.on('line', function(line) {
   const columns = line.split(',');
@@ -20,11 +20,11 @@ file.on('line', function(line) {
     firstName: columns[0],
     lastName: columns[1],
     zip: columns[2],
-    history: (columns[3])
+    history: columns[3]
 
   });
 });
-*/
+
 
 // Create some faculty
 
