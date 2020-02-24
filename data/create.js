@@ -33,7 +33,7 @@ mongoose.connection.dropDatabase()
   //.then(() => harcourt.save())
   //.then(() => torrey.save())
 
-  .then(() => Promise.all(rows.map(v => v.save()))
+  .then(() => Promise.all(rows.map(v => v.save())))
   .then(() => mongoose.connection.close())
   .then(() => console.log('Database is ready.'))
   .catch(error => console.error(error.stack));
