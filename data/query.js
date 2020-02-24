@@ -24,10 +24,10 @@ const queries = [
 
   // Who started in 2003?
   //Voter.find().sort('firstName')
-  Voter.find().sort('firstName'),
+  //Voter.find().sort('firstName'),
 
   // Who started most recently?
-  Voter.find().sort('-lastName').limit(1),
+  //Voter.find().sort('-lastName').limit(1),
 
   // Who started in 2003?
 
@@ -35,8 +35,8 @@ const queries = [
   // Who teaches 362?
 
   // What are all the ranks?
-  Voter.distinct('lastName')
-
+  //Voter.distinct('lastName')
+  Voter.find()
   // Who teaches 362?
   //Voter.find().where('courses').in(362),
 
@@ -54,11 +54,12 @@ const queries = [
 // Run the queries in parallel
 Promise.all(queries)
   .then(function(results) {
-    console.log('Registered voters with first name STARR: ', results[1].map(p => p.firstName));
+    //console.log('Registered voters with first name STARR: ', results[1].map(p => p.firstName));
     //console.log('Voted in the 2016 general election: ', results[1].map(p => p.history));
     //console.log('Started in 2003: ', results[0]);
     //console.log('Teaches 362: ', results[3].map(p => p.name));
-    console.log('Distinct ranks: ', results[2]);
+    //console.log('Distinct ranks: ', results[2]);
+    console.log(results.length());
     mongoose.connection.close();
   }).catch(error => console.error(error.stack));
 
