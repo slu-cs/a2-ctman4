@@ -60,7 +60,11 @@ Promise.all(queries)
     console.log(results[0].length);
     console.log('Registered voters with first name STARR: ', results[1].map(v => v.firstName + " " + v.lastName));
     console.log('Number of people who voted in the 2016 general election: ', results[2].length);
+<<<<<<< HEAD
     console.log('The last-name that comes last in the county in alphabetical order: ', results[3].map(v =>v.lastName));
+=======
+    console.log('The last-name that comes last in the county in alphabetical order: ', results[3].map(v =>v.lastName);
+>>>>>>> 27af49901e7963f75fc734674ac51d426cc940a0
     //console.log('Voted in the 2016 general election: ', results[1].map(p => p.history));
     //console.log('Started in 2003: ', results[0]);
     //console.log('Teaches 362: ', results[3].map(p => p.name));
