@@ -11,7 +11,7 @@ const Voter = new mongoose.Schema({
 });
 
 //Speed up queries on all fields //allows to search in each column
-Voter.index({firstName: 'firstName'});
+Voter.index({firstName: 1});
 Voter.index({lastName:1});
 Voter.index({zip:1});
 Voter.index({history:1});
