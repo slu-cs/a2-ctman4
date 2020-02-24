@@ -23,7 +23,7 @@ const queries = [
   //Voter.find().sort('history').substr(0, 2).equals('GE16'),
 
   // Who started in 2003?
-  Voter.find().sort('-firstName'),
+  Voter.sort('firstName')
 
   // Who teaches 362?
   //Voter.find().where('courses').in(362),
