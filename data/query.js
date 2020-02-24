@@ -44,7 +44,7 @@ Promise.all(queries)
   .then(function(results) {
     //console.log('Registered voters with first name STARR: ', results);
     //console.log('Voted in the 2016 general election: ', results[1].map(p => p.history));
-    console.log('Started in 2003: ', results[0].map(p => p.firstName));
+    console.log('Started in 2003: ', queries[0].map(p => p.firstName));
     //console.log('Teaches 362: ', results[3].map(p => p.name));
     //console.log('Distinct ranks: ', results[4]);
     mongoose.connection.close();
