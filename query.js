@@ -39,8 +39,9 @@ const queries = [
 
   Voter.find().sort('-lastName').limit(1),
 
-  Voter.distinct('zip')
+  Voter.distinct('zip'),
 
+  Voter.where('zip').equals(13617)
   //How many registered voters live in the Canton zip code (13617)?
 
   //What are the full names of all the registered voters whose first-name is STARR?
@@ -54,10 +55,12 @@ Promise.all(queries)
   .then(function(results) {
 
     console.log(results[0].length);
+
     console.log('Registered voters with first name STARR: ', results[1].map(v => v.firstName + " " + v.lastName));
     console.log('Number of people who voted in the 2016 general election: ', results[2].length);
     console.log('The last-name that comes last in the county in alphabetical order: ', results[3].map(v => v.lastName));
     console.log('The number of zip codes in the county: ', results[4].length);
+    console.log('registered voters live in the Canton zip code (13617)', results[5].length);
     //console.log('Voted in the 2016 general election: ', results[1].map(p => p.history));
     //console.log('Started in 2003: ', results[0]);
     //console.log('Teaches 362: ', results[3].map(p => p.name));
