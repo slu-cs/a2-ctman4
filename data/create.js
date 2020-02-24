@@ -12,16 +12,17 @@ const file = readline.createInterface({
   input: fs.createReadStream('voters.csv')
 });
 
-const voters = [];
+const rows = [];
 file.on('line', function(line) {
-  const Voter = line.split(',');
-  voters.push({
+  const columns = line.split(',');
+  rows.push(new Voter({
     firstName: columns[0],
     lastName: columns[1],
     zip: columns[2],
     history: columns[3]
 
   });
+
 });
 
 
@@ -31,7 +32,8 @@ file.on('line', function(line) {
 mongoose.connection.dropDatabase()
   //.then(() => harcourt.save())
   //.then(() => torrey.save())
-  .then(() => file.save())
+
+  .then(() => Promise.all(rows.map(v => v.save()))
   .then(() => mongoose.connection.close())
   .then(() => console.log('Database is ready.'))
   .catch(error => console.error(error.stack));
