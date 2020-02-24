@@ -13,6 +13,7 @@ const file = readline.createInterface({
 });
 
 const rows = [];
+let count = 0;
 file.on('line', function(line) {
   const columns = line.split(',');
   rows.push(new Voter({
@@ -22,7 +23,7 @@ file.on('line', function(line) {
     history: columns[3]
 
   }));
-
+  count++;
 });
 
 
@@ -39,5 +40,5 @@ mongoose.connection.dropDatabase()
   })
   //.then(() => Promise.all(rows.map(v => v.save())))
   .then(() => mongoose.connection.close())
-  .then(() => console.log('Database is ready.'))
+  .then(() => console.log('Database is ready.', count))
   .catch(error => console.error(error.stack));
