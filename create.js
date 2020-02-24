@@ -30,15 +30,19 @@ file.on('line', function(line) {
 // Create some faculty
 
 // Reset the data
-mongoose.connection.dropDatabase()
-  //.then(() => harcourt.save())
-  //.then(() => torrey.save())
-  .then(function() {
-    console.log(rows.length);
-    return Promise.all(rows.map(v => v.save()));
 
-  })
-  //.then(() => Promise.all(rows.map(v => v.save())))
-  .then(() => mongoose.connection.close())
-  .then(() => console.log('Database is ready.', count))
-  .catch(error => console.error(error.stack));
+file.on('close', function() {
+  mongoose.connection.dropDatabase()
+    //.then(() => harcourt.save())
+    //.then(() => torrey.save())
+    .then(function() {
+      console.log(rows.length);
+      return Promise.all(rows.map(v => v.save()));
+
+    })
+    //.then(() => Promise.all(rows.map(v => v.save())))
+    .then(() => mongoose.connection.close())
+    .then(() => console.log('Database is ready.', count))
+    .catch(error => console.error(error.stack));
+
+});
