@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const connect = require('./db');
 const Voter = require('./schema');
 
+connect();
+
 const fs = require('fs');
 const readline = require('readline');
 const file = readline.createInterface({
@@ -21,7 +23,7 @@ file.on('line', function(line) {
 
   });
 });
-connect(); // To the databases
+
 
 // Create some faculty
 
