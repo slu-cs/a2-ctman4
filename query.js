@@ -35,7 +35,9 @@ const queries = [
   //Voter.find().where('courses').in(362),
   Voter.where('firstName').equals('STARR'),
 
-  Voter.where('history').in('GE16')
+  Voter.where('history').in('GE16'),
+
+  Voter.find().sort('-lastName').limit(1)
 
 
 
@@ -58,6 +60,7 @@ Promise.all(queries)
     console.log(results[0].length);
     console.log('Registered voters with first name STARR: ', results[1].map(v => v.firstName + " " + v.lastName));
     console.log('Number of people who voted in the 2016 general election: ', results[2].length);
+    console.log('The last-name that comes last in the county in alphabetical order: ', results[3]);
     //console.log('Voted in the 2016 general election: ', results[1].map(p => p.history));
     //console.log('Started in 2003: ', results[0]);
     //console.log('Teaches 362: ', results[3].map(p => p.name));
